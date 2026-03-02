@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\StockTransfer;
 
 interface ProductWarehouseAllocationExampleRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductWarehouseCriteriaTransfer $productWarehouseCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockTransfer|null
-     */
     public function findProductWarehouse(ProductWarehouseCriteriaTransfer $productWarehouseCriteriaTransfer): ?StockTransfer;
 }

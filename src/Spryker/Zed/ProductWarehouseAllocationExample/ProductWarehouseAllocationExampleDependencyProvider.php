@@ -21,11 +21,6 @@ class ProductWarehouseAllocationExampleDependencyProvider extends AbstractBundle
      */
     public const STOCK_PRODUCT_QUERY = 'STOCK_PRODUCT_QUERY';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function providePersistenceLayerDependencies(Container $container): Container
     {
         $container = parent::providePersistenceLayerDependencies($container);
@@ -34,11 +29,6 @@ class ProductWarehouseAllocationExampleDependencyProvider extends AbstractBundle
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addStockProductQuery(Container $container): Container
     {
         $container->set(static::STOCK_PRODUCT_QUERY, $container->factory(function () {

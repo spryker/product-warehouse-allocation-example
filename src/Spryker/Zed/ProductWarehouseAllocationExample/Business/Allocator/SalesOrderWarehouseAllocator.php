@@ -19,19 +19,11 @@ class SalesOrderWarehouseAllocator implements SalesOrderWarehouseAllocatorInterf
      */
     protected ProductWarehouseAllocationExampleRepositoryInterface $productWarehouseAllocationExampleRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductWarehouseAllocationExample\Persistence\ProductWarehouseAllocationExampleRepositoryInterface $productWarehouseAllocationExampleRepository
-     */
     public function __construct(ProductWarehouseAllocationExampleRepositoryInterface $productWarehouseAllocationExampleRepository)
     {
         $this->productWarehouseAllocationExampleRepository = $productWarehouseAllocationExampleRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function allocate(OrderTransfer $orderTransfer): OrderTransfer
     {
         foreach ($orderTransfer->getItems() as $itemTransfer) {
@@ -41,12 +33,6 @@ class SalesOrderWarehouseAllocator implements SalesOrderWarehouseAllocatorInterf
         return $orderTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function allocateSalesOrderItemWarehouse(
         ItemTransfer $itemTransfer,
         OrderTransfer $orderTransfer
@@ -74,12 +60,6 @@ class SalesOrderWarehouseAllocator implements SalesOrderWarehouseAllocatorInterf
         return $itemTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductWarehouseCriteriaTransfer
-     */
     protected function createProductWarehouseCriteriaTransfer(
         ItemTransfer $itemTransfer,
         OrderTransfer $orderTransfer

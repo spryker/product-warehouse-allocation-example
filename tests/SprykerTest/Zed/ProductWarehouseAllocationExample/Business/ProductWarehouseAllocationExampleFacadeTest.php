@@ -43,9 +43,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
      */
     protected StockProductTransfer $stockProduct;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -60,9 +57,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         ]);
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseAssignsWarehouseWithNeverOutOfStock(): void
     {
         // Arrange
@@ -87,9 +81,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseAssignsWarehouseWithHighestQuantity(): void
     {
         // Arrange
@@ -118,9 +109,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseDoesNotAssignNewWarehouseWhenWarehouseUuidIsProvided(): void
     {
         // Arrange
@@ -142,9 +130,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseDoesNotAssignWrongWarehouseWhenStockProductNotFound(): void
     {
         // Arrange
@@ -164,9 +149,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         $this->assertNull($orderTransfer->getItems()->offsetGet(0)->getWarehouse());
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseAssignsWarehouseWhenQuantityIsNotEnough(): void
     {
         // Arrange
@@ -190,9 +172,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseThrowsExceptionWhenStoreIsNotSetToOrderTransfer(): void
     {
         // Arrange
@@ -205,9 +184,6 @@ class ProductWarehouseAllocationExampleFacadeTest extends Unit
         $this->tester->getFacade()->allocateSalesOrderWarehouse($orderTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testAllocateSalesOrderWarehouseThrowsExceptionWhenItemSkuIsNotSetToOrderTransfer(): void
     {
         // Arrange

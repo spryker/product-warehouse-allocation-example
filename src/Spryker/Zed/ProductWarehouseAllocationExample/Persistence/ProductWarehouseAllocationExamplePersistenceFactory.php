@@ -17,9 +17,6 @@ use Spryker\Zed\ProductWarehouseAllocationExample\ProductWarehouseAllocationExam
  */
 class ProductWarehouseAllocationExamplePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\Stock\Persistence\SpyStockProductQuery
-     */
     public function getStockProductQuery(): SpyStockProductQuery
     {
         return $this->getProvidedDependency(ProductWarehouseAllocationExampleDependencyProvider::STOCK_PRODUCT_QUERY);

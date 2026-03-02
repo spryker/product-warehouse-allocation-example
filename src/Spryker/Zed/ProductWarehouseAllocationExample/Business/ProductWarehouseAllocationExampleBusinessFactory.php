@@ -17,9 +17,6 @@ use Spryker\Zed\ProductWarehouseAllocationExample\Business\Allocator\SalesOrderW
  */
 class ProductWarehouseAllocationExampleBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductWarehouseAllocationExample\Business\Allocator\SalesOrderWarehouseAllocatorInterface
-     */
     public function createSalesOrderWarehouseAllocator(): SalesOrderWarehouseAllocatorInterface
     {
         return new SalesOrderWarehouseAllocator($this->getRepository());

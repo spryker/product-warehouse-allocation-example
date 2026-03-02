@@ -36,13 +36,6 @@ class ProductWarehouseAllocationExampleBusinessTester extends Actor
 {
     use _generated\ProductWarehouseAllocationExampleBusinessTesterActions;
 
-    /**
-     * @param string|null $storeName
-     * @param string|null $sku
-     * @param int|null $quantity
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function createOrderTransfer(?string $storeName = null, ?string $sku = null, ?int $quantity = 1): OrderTransfer
     {
         return (new OrderTransfer())
@@ -54,9 +47,6 @@ class ProductWarehouseAllocationExampleBusinessTester extends Actor
             );
     }
 
-    /**
-     * @return void
-     */
     public function ensureStockProductTableIsEmpty(): void
     {
         $stockProductQuery = $this->getStockProductQuery();
@@ -64,14 +54,6 @@ class ProductWarehouseAllocationExampleBusinessTester extends Actor
         $stockProductQuery->deleteAll();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockProductTransfer $stockProduct
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     * @param bool $isNeverOutOfStock
-     * @param int $quantity
-     *
-     * @return void
-     */
     public function addStockProduct(
         StockProductTransfer $stockProduct,
         StockTransfer $stockTransfer,
@@ -87,9 +69,6 @@ class ProductWarehouseAllocationExampleBusinessTester extends Actor
         ]);
     }
 
-    /**
-     * @return \Orm\Zed\Stock\Persistence\SpyStockProductQuery
-     */
     protected function getStockProductQuery(): SpyStockProductQuery
     {
         return SpyStockProductQuery::create();
